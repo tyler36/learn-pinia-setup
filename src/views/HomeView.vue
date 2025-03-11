@@ -1,7 +1,6 @@
 <template>
   <div class="home text-center space-y-4">
-    <div class="count text-center text-5xl my-8">{{ storeCounter.count }}</div>
-
+    <Counter />
     <div class="flex gap-x-2 justify-center mt-6">
       <button @click="storeCounter.decreaseCount"
         class="px-2 py-1 border rounded border-gray-400 hover:bg-gray-300">-</button>
@@ -23,6 +22,6 @@
 
 <script setup>
 import { useCounterStore } from "@/stores/counter";
-
+import Counter from "@/components/counter.vue";
 const storeCounter = useCounterStore();
 </script>
