@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 export const useCounterStore = defineStore('counter', () => {
   /* States */
@@ -13,11 +13,19 @@ export const useCounterStore = defineStore('counter', () => {
     count.value--
   }
 
+  /* Getters */
+  const oddOrEven = computed(() => {
+    if (count.value % 2 === 0) return 'even'
+
+    return 'odd'
+  })
   return {
     /* States */
     count,
     /* Actions */
     increaseCount,
     decreaseCount,
+    /* Getters */
+    oddOrEven,
   }
 })
