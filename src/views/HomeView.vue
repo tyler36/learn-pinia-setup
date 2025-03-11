@@ -3,8 +3,8 @@
     <div class="count text-center text-5xl my-8">{{ storeCounter.count }}</div>
 
     <div class="flex gap-x-2 justify-center mt-6">
-      <button @click="decreaseCount" class="px-2 py-1 border rounded border-gray-400 hover:bg-gray-300">-</button>
-      <button @click="increaseCount" class="px-2 py-1 border rounded border-gray-400 hover:bg-gray-300">+</button>
+      <button @click="storeCounter.decreaseCount" class="px-2 py-1 border rounded border-gray-400 hover:bg-gray-300">-</button>
+      <button @click="storeCounter.increaseCount" class="px-2 py-1 border rounded border-gray-400 hover:bg-gray-300">+</button>
     </div>
 
     <hr>
@@ -19,13 +19,6 @@ import { useCounterStore } from "@/stores/counter";
 
 const storeCounter = useCounterStore();
 const count = ref(0)
-
-function increaseCount() {
-  count.value++
-}
-function decreaseCount() {
-  count.value--
-}
 
 const oddOrEven = computed(() => {
   if (count.value % 2 === 0 ) return 'even'
